@@ -1,0 +1,419 @@
+        :root {
+            --unicorn: #e0c3ff;
+            --unicorn-dark: #c99fff;
+            --pegasus: #64b5f6;
+            --pegasus-dark: #1976d2;
+            --dragon: #ff6f61;
+            --dragon-dark: #d63447;
+            --accent: #ffd700;
+            --accent-light: #ffed4e;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050812;
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --glow-weak: 0 0 10px rgba(224, 195, 255, 0.3);
+            --glow-medium: 0 0 20px rgba(100, 181, 246, 0.4);
+            --glow-strong: 0 0 30px rgba(255, 111, 97, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1040 50%, #0a1a3a 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ============================================
+           SECTION LAYOUT
+           ============================================ */
+        #orders {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        #orders h2 {
+            text-align: center;
+            font-size: clamp(2rem, 8vw, 3rem);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--unicorn), var(--pegasus), var(--dragon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 50px rgba(224, 195, 255, 0.5);
+            animation: titlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.3);
+            }
+        }
+
+        /* ============================================
+           GRID LAYOUT
+           ============================================ */
+        .orders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .orders-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            #orders {
+                padding: 2rem 1.5rem;
+            }
+
+            #orders h2 {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #orders {
+                padding: 1.5rem 1rem;
+            }
+
+            #orders h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .orders-grid {
+                gap: 1rem;
+            }
+        }
+
+        /* ============================================
+           CARD STYLES
+           ============================================ */
+        .order-card {
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.08) 0%,
+                    rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(224, 195, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .order-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .order-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .order-card.unicorn {
+            border-color: rgba(224, 195, 255, 0.5);
+        }
+
+        .order-card.unicorn:hover {
+            box-shadow: 0 0 30px rgba(224, 195, 255, 0.3),
+                inset 0 0 20px rgba(224, 195, 255, 0.05),
+                0 12px 48px rgba(0, 0, 0, 0.4);
+            border-color: rgba(224, 195, 255, 0.7);
+        }
+
+        .order-card.pegasus {
+            border-color: rgba(100, 181, 246, 0.5);
+        }
+
+        .order-card.pegasus:hover {
+            box-shadow: 0 0 30px rgba(100, 181, 246, 0.3),
+                inset 0 0 20px rgba(100, 181, 246, 0.05),
+                0 12px 48px rgba(0, 0, 0, 0.4);
+            border-color: rgba(100, 181, 246, 0.7);
+        }
+
+        .order-card.dragon {
+            border-color: rgba(255, 111, 97, 0.5);
+        }
+
+        .order-card.dragon:hover {
+            box-shadow: 0 0 30px rgba(255, 111, 97, 0.3),
+                inset 0 0 20px rgba(255, 111, 97, 0.05),
+                0 12px 48px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 111, 97, 0.7);
+        }
+
+        /* ============================================
+           ICON STYLES
+           ============================================ */
+        .order-icon {
+            font-size: clamp(2.5rem, 10vw, 3rem);
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: floatIcon 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .order-card:hover .order-icon {
+            animation: floatIcon 1.5s ease-in-out infinite, rotateIcon 2s ease-in-out;
+            transform: scale(1.1);
+        }
+
+        @keyframes rotateIcon {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        .order-card h3 {
+            font-size: clamp(1.25rem, 5vw, 1.5rem);
+            margin-bottom: 0.5rem;
+            color: var(--accent-light);
+            font-weight: 700;
+            line-height: 1.3;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover h3 {
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .order-role {
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .order-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.9rem, 3vw, 0.95rem);
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* ============================================
+           BUTTON STYLES
+           ============================================ */
+        .learn-more-btn {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            align-self: flex-start;
+        }
+
+        .learn-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .learn-more-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.2));
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .learn-more-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .learn-more-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 480px) {
+            .learn-more-btn {
+                padding: 0.65rem 1.25rem;
+                font-size: 0.8rem;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        /* ============================================
+           EXPANDED CONTENT
+           ============================================ */
+        .order-expanded {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .order-expanded.active {
+            display: block;
+            animation: slideDown 0.3s ease, expandGlow 2s ease infinite;
+        }
+
+        @keyframes expandGlow {
+            0% {
+                box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+            }
+        }
+
+        .expanded-title {
+            color: var(--accent-light);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .expanded-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 80%;
+            background: linear-gradient(180deg, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .expanded-text {
+            color: var(--text-muted);
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            padding-left: 0;
+        }
+
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+        .order-card:focus-within {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .learn-more-btn:focus {
+            outline: 2px solid var(--accent-light);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ============================================
+           PRINT STYLES
+           ============================================ */
+        @media print {
+            .order-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .order-card::before,
+            .order-card::after {
+                display: none;
+            }
+        }

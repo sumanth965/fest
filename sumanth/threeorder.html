@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Three Orders</title>
+    <script src="js/threeorder.js"></script>
+    <link rel="stylesheet" href="css/threeorder.css">
+</head>
+
+<body>
+    <section id="orders">
+        <h2>The Three Orders</h2>
+        <div class="orders-grid">
+            <!-- Unicorn Order -->
+            <div class="order-card unicorn">
+                <div class="order-icon">🦄</div>
+                <h3>Order of the Unicorn Sanctuaries</h3>
+                <p class="order-role">Guardians of Wisdom and Law</p>
+                <p class="order-desc">
+                    The Unicorns dwelled in crystalline palaces suspended between dimensions,
+                    governing through consensus and telepathic councils. They were keepers of memory
+                    and enforcers of cosmic law.
+                </p>
+                <button class="learn-more-btn" onclick="toggleExpanded(this)">Learn More</button>
+                <div class="order-expanded">
+                    <div class="expanded-title">⭐ Hierarchy:</div>
+                    <div class="expanded-text">High Unicorn Oracles → Guardian Sentinels → Memory Weavers</div>
+                    <div class="expanded-title" style="margin-top: 1rem;">🏰 Sanctuaries:</div>
+                    <div class="expanded-text">Seven Floating Citadels in the Luminous Skies, connected by bridges of
+                        pure thought</div>
+                </div>
+            </div>
+
+            <!-- Pegasus Order -->
+            <div class="order-card pegasus">
+                <div class="order-icon">🐴</div>
+                <h3>Order of the Star-Winged Pegasi</h3>
+                <p class="order-role">Messengers of Knowledge and Connection</p>
+                <p class="order-desc">
+                    Swift and luminous, the Pegasi soared through star-dusted currents,
+                    carrying glowing scrolls of wisdom and psychic messages between the Orders.
+                    They bridged all realms with grace and speed.
+                </p>
+                <button class="learn-more-btn" onclick="toggleExpanded(this)">Learn More</button>
+                <div class="order-expanded">
+                    <div class="expanded-title">⭐ Hierarchy:</div>
+                    <div class="expanded-text">Celestial Pegasi Envoys → Star-Path Runners → Knowledge Carriers</div>
+                    <div class="expanded-title" style="margin-top: 1rem;">☁️ Territories:</div>
+                    <div class="expanded-text">The Infinite Star Currents - pathways of wind and light connecting all
+                        realms</div>
+                </div>
+            </div>
+
+            <!-- Dragon Order -->
+            <div class="order-card dragon">
+                <div class="order-icon">🐉</div>
+                <h3>Order of the Dragonheart Keepers</h3>
+                <p class="order-role">Guardians of Elemental Secrets</p>
+                <p class="order-desc">
+                    Deep within ancient mountains and volcanic citadels, Dragons maintained the balance
+                    of primal forces. They guarded fire, storms, oceans, and the very heartbeat of magic itself.
+                </p>
+                <button class="learn-more-btn" onclick="toggleExpanded(this)">Learn More</button>
+                <div class="order-expanded">
+                    <div class="expanded-title">⭐ Hierarchy:</div>
+                    <div class="expanded-text">Ancient Dragonheart Wardens → Flame Keepers → Element Sentries</div>
+                    <div class="expanded-title" style="margin-top: 1rem;">🌋 Strongholds:</div>
+                    <div class="expanded-text">Volcanic Citadels at the World's Core - fortresses of living stone and
+                        eternal flame</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

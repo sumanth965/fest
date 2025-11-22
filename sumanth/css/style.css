@@ -1,0 +1,446 @@
+    /* ============================================
+           GLOBAL STYLES & CSS VARIABLES
+           ============================================ */
+
+
+    /* ============================================
+   ADVANCED THREE ORDERS STYLES
+   Additional future-ready enhancements
+   ============================================ */
+
+    /* Enhanced Order Grid with Stagger Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .orders-grid .order-card:nth-child(1) {
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: 0.1s;
+      opacity: 0;
+    }
+
+    .orders-grid .order-card:nth-child(2) {
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    .orders-grid .order-card:nth-child(3) {
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
+    /* Advanced Glassmorphism Effect */
+    .order-card {
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.08) 0%,
+          rgba(255, 255, 255, 0.02) 100%);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animated Border Gradient */
+    @keyframes rotateBorder {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .order-card::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(45deg,
+          transparent 30%,
+          var(--accent),
+          transparent 70%);
+      background-size: 200% 200%;
+      border-radius: 15px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: rotateBorder 3s linear infinite;
+    }
+
+    .order-card:hover::after {
+      opacity: 0.3;
+    }
+
+    /* Icon Animations */
+    @keyframes floatIcon {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes rotateIcon {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .order-icon {
+      display: inline-block;
+      animation: floatIcon 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px currentColor);
+      transition: all 0.3s ease;
+    }
+
+    .order-card:hover .order-icon {
+      animation: floatIcon 1.5s ease-in-out infinite, rotateIcon 2s ease-in-out;
+      transform: scale(1.1);
+    }
+
+    /* Unicorn Specific Enhancements */
+    .order-card.unicorn .order-icon {
+      color: var(--unicorn);
+      text-shadow: 0 0 20px var(--unicorn), 0 0 40px var(--unicorn-dark);
+    }
+
+    .order-card.unicorn::before {
+      background: linear-gradient(90deg, var(--unicorn), var(--unicorn-dark), transparent);
+    }
+
+    /* Pegasus Specific Enhancements */
+    .order-card.pegasus .order-icon {
+      color: var(--pegasus);
+      text-shadow: 0 0 20px var(--pegasus), 0 0 40px var(--pegasus-dark);
+    }
+
+    .order-card.pegasus::before {
+      background: linear-gradient(90deg, var(--pegasus), var(--pegasus-dark), transparent);
+    }
+
+    /* Dragon Specific Enhancements */
+    .order-card.dragon .order-icon {
+      color: var(--dragon);
+      text-shadow: 0 0 20px var(--dragon), 0 0 40px var(--dragon-dark);
+    }
+
+    .order-card.dragon::before {
+      background: linear-gradient(90deg, var(--dragon), var(--dragon-dark), transparent);
+    }
+
+    /* Particle Effect Background */
+    @keyframes particleFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.1;
+      }
+
+      50% {
+        transform: translate(10px, -10px) rotate(180deg);
+        opacity: 0.3;
+      }
+    }
+
+    .order-card .order-icon::before {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: particleFloat 4s ease-in-out infinite;
+      transition: opacity 0.3s ease;
+    }
+
+    .order-card:hover .order-icon::before {
+      opacity: 1;
+    }
+
+    /* Enhanced Typography */
+    .order-card h3 {
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .order-card:hover h3 {
+      text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+      letter-spacing: 0.5px;
+    }
+
+    /* Advanced Button States */
+    .learn-more-btn {
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .learn-more-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+
+    .learn-more-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .learn-more-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Expanded Section Enhancements */
+    @keyframes expandGlow {
+      0% {
+        box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      }
+
+      100% {
+        box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+      }
+    }
+
+    .order-expanded.active {
+      animation: slideDown 0.3s ease, expandGlow 2s ease infinite;
+    }
+
+    .expanded-title {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .expanded-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 80%;
+      background: linear-gradient(180deg, var(--accent), transparent);
+      border-radius: 2px;
+    }
+
+    /* Section Title Enhancement */
+    #orders h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, var(--unicorn), var(--pegasus), var(--dragon));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 50px rgba(224, 195, 255, 0.5);
+      animation: titlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes titlePulse {
+
+      0%,
+      100% {
+        filter: brightness(1);
+      }
+
+      50% {
+        filter: brightness(1.3);
+      }
+    }
+
+    /* Responsive Enhancements */
+    @media (max-width: 768px) {
+      .orders-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      #orders h2 {
+        font-size: 2rem;
+      }
+
+      .order-icon {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Dark Mode Toggle Support */
+    @media (prefers-color-scheme: light) {
+      .order-card {
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+      }
+
+      .order-desc,
+      .expanded-text {
+        color: #666;
+      }
+    }
+
+    /* Accessibility Enhancements */
+    .order-card:focus-within {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .learn-more-btn:focus {
+      outline: 2px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    /* Print Styles */
+    @media print {
+      .order-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .order-card::before,
+      .order-card::after {
+        display: none;
+      }
+    }
+
+    /* Performance Optimization */
+    .order-card {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    /* Loading State */
+    .orders-grid.loading .order-card {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Interactive Ripple Effect */
+    @keyframes ripple {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    .order-card.ripple-effect::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.5);
+      animation: ripple 0.6s ease-out;
+    }
+
+    /* Scrollbar Styling for Expanded Content */
+    .order-expanded::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .order-expanded::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+    }
+
+    .order-expanded::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    .order-expanded::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-light);
+    }
+
+    :root {
+      --unicorn: #e0c3ff;
+      --unicorn-dark: #c99fff;
+      --pegasus: #64b5f6;
+      --pegasus-dark: #1976d2;
+      --dragon: #ff6f61;
+      --dragon-dark: #d63447;
+      --accent: #ffd700;
+      --accent-light: #ffed4e;
+      --bg-dark: #0a0e27;
+      --bg-darker: #050812;
+      --text-light: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --glow-weak: 0 0 10px rgba(224, 195, 255, 0.3);
+      --glow-medium: 0 0 20px rgba(100, 181, 246, 0.4);
+      --glow-strong: 0 0 30px rgba(255, 111, 97, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1040 50%, #0a1a3a 100%);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, white, rgba(255, 255, 255, 0)),
+        radial-gradient(2px 2px at 60px 70px, white, rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 50px 50px, white, rgba(255, 255, 255, 0));
+      background-size: 200px 200px;
+      background-position: 0 0, 40px 60px, 130px 270px;
+      pointer-events: none;
+      z-index: 1;
+      animation: twinkleStars 5s ease-in-out infinite;
+    }

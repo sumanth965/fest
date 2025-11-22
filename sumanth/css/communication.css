@@ -1,0 +1,332 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #FFD700;
+            --accent-light: #FFE55C;
+            --text-light: #E0E0E0;
+            --text-muted: #B0B0B0;
+            --pegasus: #64B5F6;
+            --pegasus-dark: #1E88E5;
+            --dragon-dark: #FF6F00;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0A0E27;
+            color: var(--text-light);
+            padding: 1rem;
+        }
+
+        /* ============================================
+           COMMUNICATION SECTION
+           ============================================ */
+
+        #communication {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        #communication h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--accent-light);
+        }
+
+        .communication-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        /* Communication Modes */
+
+        .comm-modes {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .comm-mode {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comm-mode:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .comm-mode h4 {
+            color: var(--accent-light);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .comm-mode p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Message Simulator */
+
+        .message-simulator {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--pegasus);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .message-simulator h4 {
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .simulator-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .simulator-controls input,
+        .simulator-controls select {
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--pegasus);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .simulator-controls input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .simulator-controls input:focus,
+        .simulator-controls select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-light);
+        }
+
+        .simulator-controls button {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--pegasus-dark), var(--dragon-dark));
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .simulator-controls button:hover {
+            box-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
+            transform: scale(1.05);
+        }
+
+        .simulator-controls button:active {
+            transform: scale(0.98);
+        }
+
+        .message-output {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--accent-light);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-weight: bold;
+            word-break: break-word;
+            padding: 1rem;
+            animation: glow-fade 2s ease-in-out infinite;
+        }
+
+        @keyframes glow-fade {
+
+            0%,
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+
+            50% {
+                opacity: 0.8;
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        /* Tablet Responsive */
+
+        @media (max-width: 1024px) {
+            #communication h2 {
+                font-size: 1.75rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .communication-content {
+                gap: 1.5rem;
+            }
+
+            .comm-mode {
+                padding: 1.25rem;
+            }
+
+            .message-simulator {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Mobile Responsive */
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            #communication {
+                padding: 1.5rem 1rem;
+            }
+
+            #communication h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .communication-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .comm-modes {
+                gap: 1.25rem;
+            }
+
+            .comm-mode {
+                padding: 1rem;
+            }
+
+            .comm-mode h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .comm-mode p {
+                font-size: 0.9rem;
+            }
+
+            .message-simulator {
+                padding: 1.5rem 1rem;
+            }
+
+            .message-simulator h4 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .simulator-controls {
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .simulator-controls input,
+            .simulator-controls select {
+                padding: 0.65rem 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .message-output {
+                min-height: 80px;
+                font-size: 1rem;
+                padding: 0.75rem;
+            }
+        }
+
+        /* Small Mobile */
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+
+            #communication {
+                padding: 1rem 0.5rem;
+            }
+
+            #communication h2 {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .comm-mode {
+                padding: 0.85rem;
+            }
+
+            .comm-mode h4 {
+                font-size: 0.95rem;
+            }
+
+            .comm-mode p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            .message-simulator {
+                padding: 1.25rem 1rem;
+                border-radius: 12px;
+            }
+
+            .message-simulator h4 {
+                font-size: 1rem;
+                margin-bottom: 0.85rem;
+            }
+
+            .simulator-controls {
+                gap: 0.6rem;
+                margin-bottom: 0.85rem;
+            }
+
+            .simulator-controls input,
+            .simulator-controls select,
+            .simulator-controls button {
+                padding: 0.6rem 0.65rem;
+                font-size: 0.8rem;
+                border-radius: 4px;
+            }
+
+            .simulator-controls button:hover {
+                transform: scale(1.02);
+            }
+
+            .message-output {
+                min-height: 70px;
+                font-size: 0.9rem;
+            }
+        }

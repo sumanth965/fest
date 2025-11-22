@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystical Communication</title>
+    <script src="js/communication.js"></script>
+    <link rel="stylesheet" href="css/communication.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- ============================================
+         COMMUNICATION SECTION
+         ============================================ -->
+    <section id="communication">
+        <h2>How They Communicated</h2>
+        <div class="communication-content">
+            <div class="comm-modes">
+                <!-- Telepathic Lightweave -->
+                <div class="comm-mode">
+                    <h4>🌟 Telepathic Lightweave</h4>
+                    <p>
+                        Unicorns connected minds through glowing sigils etched in the air itself.
+                        These ethereal symbols carried emotions, thoughts, and visions instantly
+                        across infinite distances.
+                    </p>
+                </div>
+
+                <!-- Star-Scripts on Wind -->
+                <div class="comm-mode">
+                    <h4>📜 Star-Scripts on Wind</h4>
+                    <p>
+                        Pegasi carried luminous glyphs woven from starlight and wind. Upon arrival at
+                        their destination, these scripts dissolved into vivid memories and knowledge,
+                        transferring wisdom directly to the minds of receivers.
+                    </p>
+                </div>
+
+                <!-- Dragon Resonance -->
+                <div class="comm-mode">
+                    <h4>🔥 Dragon Resonance</h4>
+                    <p>
+                        Dragons communicated through deep, resonant roars that altered weather patterns,
+                        caused lava flows, and sent vibrations through the world's core. Their voices shaped reality
+                        itself.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Message Simulator -->
+            <div class="message-simulator">
+                <h4>✨ Message Simulator</h4>
+                <div class="simulator-controls">
+                    <input type="text" id="messageInput" placeholder="Enter your message...">
+                    <select id="creatureSelect">
+                        <option value="unicorn">🦄 Unicorn (Telepathic)</option>
+                        <option value="pegasus">🐴 Pegasus (Star-Script)</option>
+                        <option value="dragon">🐉 Dragon (Resonance)</option>
+                    </select>
+                    <button onclick="castMessage()">Cast Message</button>
+                </div>
+                <div class="message-output" id="messageOutput">
+                    Awaiting your mystical transmission...
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+</body>
+
+</html>

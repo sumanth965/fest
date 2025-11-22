@@ -1,0 +1,422 @@
+        /* ============================================
+           GLOBAL STYLES & CSS VARIABLES
+           ============================================ */
+        :root {
+            --unicorn: #e0c3ff;
+            --unicorn-dark: #c99fff;
+            --pegasus: #64b5f6;
+            --pegasus-dark: #1976d2;
+            --dragon: #ff6f61;
+            --dragon-dark: #d63447;
+            --accent: #ffd700;
+            --accent-light: #ffed4e;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050812;
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --glow-weak: 0 0 10px rgba(224, 195, 255, 0.3);
+            --glow-medium: 0 0 20px rgba(100, 181, 246, 0.4);
+            --glow-strong: 0 0 30px rgba(255, 111, 97, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1040 50%, #0a1a3a 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, white, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 60px 70px, white, rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 50px 50px, white, rgba(255, 255, 255, 0));
+            background-size: 200px 200px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            pointer-events: none;
+            z-index: 1;
+            animation: twinkleStars 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkleStars {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        section {
+            position: relative;
+            z-index: 2;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           TIMELINE & MAP SECTION
+           ============================================ */
+        #timeline h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            background: linear-gradient(135deg, var(--unicorn), var(--pegasus), var(--dragon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.3);
+            }
+        }
+
+        .timeline-map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            align-items: start;
+        }
+
+        /* ============================================
+           TIMELINE STYLES
+           ============================================ */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .timeline h3 {
+            color: var(--accent-light);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            text-align: center;
+        }
+
+        .era-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent);
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .era-card::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: clamp(1rem, 2vw, 1.5rem);
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .era-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .era-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            transform: translateX(clamp(5px, 2vw, 15px));
+            border-left-color: var(--accent-light);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+        }
+
+        .era-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .era-name {
+            color: var(--accent-light);
+            font-weight: 600;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
+            letter-spacing: 0.5px;
+        }
+
+        .era-description {
+            color: var(--text-muted);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           MAP STYLES
+           ============================================ */
+        .map {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            justify-content: flex-start;
+        }
+
+        .map h3 {
+            color: var(--accent-light);
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            text-align: center;
+            margin-bottom: clamp(0.5rem, 1vw, 1rem);
+        }
+
+        .map-regions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2rem);
+            width: 100%;
+        }
+
+        .region-circle {
+            width: clamp(90px, 20vw, 140px);
+            height: clamp(90px, 20vw, 140px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .region-circle::before {
+            content: '';
+            position: absolute;
+            inset: -100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .region-circle:hover::before {
+            opacity: 1;
+        }
+
+        .region-unicorn {
+            background: radial-gradient(circle, rgba(224, 195, 255, 0.3), transparent);
+            border-color: var(--unicorn);
+            color: var(--unicorn);
+            box-shadow: var(--glow-weak);
+        }
+
+        .region-unicorn:hover {
+            box-shadow: 0 0 40px rgba(224, 195, 255, 0.8), inset 0 0 30px rgba(224, 195, 255, 0.2);
+            transform: scale(1.15);
+            background: radial-gradient(circle, rgba(224, 195, 255, 0.5), rgba(224, 195, 255, 0.1));
+        }
+
+        .region-pegasus {
+            background: radial-gradient(circle, rgba(100, 181, 246, 0.3), transparent);
+            border-color: var(--pegasus);
+            color: var(--pegasus);
+            box-shadow: var(--glow-medium);
+        }
+
+        .region-pegasus:hover {
+            box-shadow: 0 0 40px rgba(100, 181, 246, 0.8), inset 0 0 30px rgba(100, 181, 246, 0.2);
+            transform: scale(1.15);
+            background: radial-gradient(circle, rgba(100, 181, 246, 0.5), rgba(100, 181, 246, 0.1));
+        }
+
+        .region-dragon {
+            background: radial-gradient(circle, rgba(255, 111, 97, 0.3), transparent);
+            border-color: var(--dragon);
+            color: var(--dragon);
+            box-shadow: var(--glow-strong);
+        }
+
+        .region-dragon:hover {
+            box-shadow: 0 0 40px rgba(255, 111, 97, 0.8), inset 0 0 30px rgba(255, 111, 97, 0.2);
+            transform: scale(1.15);
+            background: radial-gradient(circle, rgba(255, 111, 97, 0.5), rgba(255, 111, 97, 0.1));
+        }
+
+        .region-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+            text-align: center;
+            max-width: 100%;
+            width: clamp(200px, 90%, 350px);
+            margin: 0 auto;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: var(--text-muted);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            transform: translateY(-10px);
+            pointer-events: none;
+        }
+
+        .region-info.active {
+            opacity: 1;
+            transform: translateY(0);
+            border-color: var(--accent);
+            color: var(--text-light);
+            pointer-events: all;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .timeline-map-container {
+                gap: clamp(1rem, 3vw, 2rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: clamp(1rem, 3vw, 2rem);
+            }
+
+            .timeline-map-container {
+                grid-template-columns: 1fr;
+                gap: clamp(2rem, 4vw, 3rem);
+            }
+
+            .timeline {
+                gap: clamp(0.8rem, 2vw, 1.2rem);
+            }
+
+            .era-card {
+                padding: clamp(0.9rem, 2vw, 1.2rem);
+            }
+
+            .map-regions {
+                gap: clamp(0.8rem, 2vw, 1.5rem);
+            }
+
+            .region-circle {
+                width: clamp(80px, 22vw, 110px);
+                height: clamp(80px, 22vw, 110px);
+                font-size: clamp(0.65rem, 2vw, 0.85rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 1rem;
+            }
+
+            #timeline h2 {
+                margin-bottom: 1.5rem;
+            }
+
+            .timeline h3,
+            .map h3 {
+                margin-bottom: 1rem;
+            }
+
+            .timeline {
+                gap: 0.8rem;
+            }
+
+            .era-card {
+                padding: 0.9rem;
+                border-left-width: 3px;
+            }
+
+            .era-card::before {
+                width: 18px;
+                height: 18px;
+                left: -9px;
+            }
+
+            .era-name {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .era-description {
+                font-size: 0.8rem;
+            }
+
+            .map-regions {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .region-circle {
+                width: 100px;
+                height: 100px;
+                font-size: 0.75rem;
+            }
+
+            .region-info {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .era-card:active {
+                transform: translateX(clamp(5px, 2vw, 15px));
+            }
+
+            .region-circle:active {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            section {
+                page-break-inside: avoid;
+            }
+
+            .timeline-map-container {
+                page-break-inside: avoid;
+            }
+        }

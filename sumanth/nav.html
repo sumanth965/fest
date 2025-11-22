@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<style>
+    /* ============================================
+           NAVIGATION
+           ============================================ */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(10, 14, 39, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(224, 195, 255, 0.2);
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, var(--unicorn), var(--pegasus), var(--dragon));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    nav a:hover {
+        color: var(--accent-light);
+        text-shadow: 0 0 10px var(--accent);
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">✨ Genesis Whisper</a>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./threeorder.html">The Three Orders</a></li>
+                <li><a href="./communtication.html">Communication</a></li>
+                <li><a href="./scared.html">Sacred Institution</a></li>
+                <li><a href="./timeline.html">Timeline & Map</a></li>
+                <li><a href="./archive.html">Archive</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>

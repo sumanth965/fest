@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline & Map</title>
+     <script src="js/timeline.js"></script>
+    <link rel="stylesheet" href="css/timeline.css">
+
+</head>
+
+<body>
+    <!-- ============================================
+             TIMELINE & MAP SECTION
+             ============================================ -->
+    <section id="timeline">
+        <h2>Timeline & Map</h2>
+        <div class="timeline-map-container">
+            <!-- Timeline -->
+            <div class="timeline">
+                <h3>Eras Before Time</h3>
+
+                <div class="era-card">
+                    <div class="era-name">Era of First Light</div>
+                    <div class="era-description">
+                        The moment consciousness awakened. Unicorns, Pegasi, and Dragons emerged from the void,
+                        discovering their powers for the first time.
+                    </div>
+                </div>
+
+                <div class="era-card">
+                    <div class="era-name">Era of Soaring Sanctuaries</div>
+                    <div class="era-description">
+                        Unicorns built their floating citadels. Pegasi discovered the star currents. The sky became
+                        home.
+                    </div>
+                </div>
+
+                <div class="era-card">
+                    <div class="era-name">Era of Elemental Mastery</div>
+                    <div class="era-description">
+                        Dragons descended to the world's core and claimed their volcanic strongholds.
+                        Magic flowed freely through all realms.
+                    </div>
+                </div>
+
+                <div class="era-card">
+                    <div class="era-name">Era of the Triune Accord</div>
+                    <div class="era-description">
+                        The three Orders met for the first time at the Conclave. A pact was forged—eternal balance,
+                        shared knowledge, unified purpose.
+                    </div>
+                </div>
+
+                <div class="era-card">
+                    <div class="era-name">Era of Constellations</div>
+                    <div class="era-description">
+                        All decisions and moments were written as stars. The civilization reached its golden age,
+                        a perfect harmony of magic and consciousness.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="map">
+                <h3>The Three Realms</h3>
+                <div class="map-regions">
+                    <div class="region-circle region-unicorn" onclick="showRegionInfo(this, 'unicorn')">
+                        Sky Sanctuaries
+                    </div>
+                    <div class="region-circle region-pegasus" onclick="showRegionInfo(this, 'pegasus')">
+                        Star Paths
+                    </div>
+                    <div class="region-circle region-dragon" onclick="showRegionInfo(this, 'dragon')">
+                        Flame Citadels
+                    </div>
+                </div>
+                <div class="region-info" id="region-info">
+                    Hover or click a realm to learn more...
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+</body>
+
+</html>
